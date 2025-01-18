@@ -28,7 +28,7 @@ The pipeline runs in a web worker for seamless integration and to maintain UI re
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/solaimanshadin/ml-browser-based-object-detection.git
+   git clone https://github.com/solaimanshadin/webml-object-detection.git
    ```
 
 

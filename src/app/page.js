@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Dropzone from 'react-dropzone'
 import ObjectAnnotation from "./ObjectAnnotation";
+import GitHubButton from "react-github-btn";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -77,6 +78,17 @@ export default function Home() {
           )}
         </Dropzone>
       </div>
+
+      <footer className="text-center"><p>
+        <GitHubButton
+          href='https://github.com/solaimanshadin/webml-object-detection'
+          data-icon='octicon-star'
+          aria-label='Star solaimanshadin/webml-object-detection on GitHub'
+          data-show-count={true}
+        >
+          Star
+        </GitHubButton>
+      </p></footer>
     </div>
   );
 }
