@@ -28,7 +28,7 @@ The pipeline runs in a web worker for seamless integration and to maintain UI re
 
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/solaimanshadin/ml-browser-based-object-detection.git
    ```
 
 
@@ -61,3 +61,4 @@ The pipeline runs in a web worker for seamless integration and to maintain UI re
 
 
 
+### Demo:  https://webml-object-detection.vercel.app/
