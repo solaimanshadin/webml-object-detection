@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Object Detection in the Browser
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project demonstrates **real-time object detection** directly in a web browser using **Machine Learning (ML)**. It leverages the power of the [`transformers.js`](https://xenova.github.io/transformers.js/) library to run inference efficiently without requiring a backend server, ensuring privacy and performance.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **On-device Object Detection**: Utilizes a pre-trained **DETR (DEtection TRansformer)** model from **Hugging Face** for identifying objects in uploaded images.
+- **Threshold-based Filtering**: Allows filtering of detection results based on confidence scores.
+- **Dynamic Visualization**: Displays detected objects with bounding boxes and labels overlaid on the image.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ML Pipeline
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The ML functionality is encapsulated using the `transformers.js` library:
+- **Model Used**: `Xenova/detr-resnet-50`
+- **Task**: `object-detection`
+- **Pipeline**: `pipeline(task, model)`
 
-## Learn More
+The pipeline runs in a web worker for seamless integration and to maintain UI responsiveness.
 
-To learn more about Next.js, take a look at the following resources:
+### How It Works
+1. The **image** is uploaded via a drag-and-drop interface.
+2. The worker processes the image using the DETR model, returning detected objects along with their bounding boxes and confidence scores.
+3. Objects with confidence scores above the specified threshold are visualized.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   ```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server::
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Technologies Used
+<ul> 
+<li>Next.js
+</li>
+<li>transformers.js: Library for running transformer-based models in JavaScript.</li>
+<li> Dropzone: Drag-and-drop file upload component.</li>
+
+</ul>
+
+## Usage
+<ol>
+<li>Drag and drop an image into the browser.</li>
+<li>Adjust the detection threshold from code if necessary (default: 0.85).</li>
+<li>View the detected objects on the image.</li>
+
+</ol>
+
+
+
